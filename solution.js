@@ -1,4 +1,4 @@
-function solution(numbers) {
-  return numbers.reduce((acc, currentValue) => acc + currentValue, 0) / numbers.length;
+function solution(num) {
+  return ((num & 1) === 0 ? "Even" : "Odd");
 }
-//https://school.programmers.co.kr/learn/courses/30/lessons/120817
+//https://school.programmers.co.kr/learn/courses/30/lessons/12937
