@@ -1,6 +1,4 @@
-function solution(s) {
-  const len = s.length;
-  const mid = len >> 1;
-  return s.slice(mid - (1 - len & 1), mid + 1);
+function solution(n) {
+  return "수박".repeat(n).slice(0, n);
 }
-//https://school.programmers.co.kr/learn/courses/30/lessons/12903
+//https://school.programmers.co.kr/learn/courses/30/lessons/12922
