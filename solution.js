@@ -1,5 +1,11 @@
-function solution(x, n) {
-  return Array.from({length: n}, (_, i) => x * (i + 1) );
+function solution(n) {
+  var answer = [];
+  
+  while(n > 0){
+      answer.push((n % 10) | 0);
+      n = (n / 10) | 0;
+  }
+  return answer;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/12954
+//https://school.programmers.co.kr/learn/courses/30/lessons/12932
