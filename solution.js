@@ -7,13 +7,11 @@ function solution(X, Y) {
   }
   
   for(let i = 0; i < X.length; i++){
-    const x = X[i];
-    obj[x].x++;
+    obj[X[i]].x++;
   }
   
   for(let i = 0; i < Y.length; i++){
-    const y = Y[i];
-    obj[y].y++;
+    obj[ Y[i]].y++;
   }
 
 
