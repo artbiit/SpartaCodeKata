@@ -1,67 +1,36 @@
-//조금더 가벼움
 function solution(X, Y) {
+  let arr = Array(10).fill(0);
+  const factor = 3_000_000;
     
-  let obj = {};
-  for(let i = 9 ; i >= 0; i --){
-    obj[i]=  {x : 0 , y : 0};
-  }
-  
-  for(let i = 0; i < X.length; i++){
-    obj[X[i]].x++;
-  }
-  
-  for(let i = 0; i < Y.length; i++){
-    obj[ Y[i]].y++;
-  }
-
-
- let result = '';
-
-  for(let key = 9; key >= 0; key--){
-    result += key.toString().repeat( Math.min(obj[key].x, obj[key].y ));
-  }
-
-  if(result == ''){
-    return "-1";
-  }
-
-if(result[0] == '0'){
-  return "0";
-}
-
-return result;
-
-}
-
-//수가 커졌을때 살짝 더 무거워짐
-function solutionArr(X, Y) {
-  let arrX = Array(10).fill(0);
-  let arrY = Array(10).fill(0);
-
+    if(X.length > Y.length){
+        const tmp = X;
+        X = Y;
+        Y = tmp;
+        
+    }
   for (let i = 0; i < X.length; i++) {
-    arrX[X[i]]++;
+    arr[X.charCodeAt(i) - 48]++;
+    arr[Y.charCodeAt(i) - 48]+= factor;
   }
   
-  for (let i = 0; i < Y.length; i++) {
-    arrY[Y[i]]++;
+  for (let i = X.length; i < Y.length; i++) {
+    arr[Y.charCodeAt(i) - 48]+= factor;
   }
 
-  let result = '';
+  let result = [];
+    for (let i = 9; i >= 0; i--) {
+        const value = arr[i];
+        const minValue = Math.min(value % factor, (value / factor) | 0);
+        if (minValue > 0) {
+            result.push(i.toString().repeat(minValue));
+        }
+    }
 
-  for (let i = 9; i >= 0; i--) {
-      result += i.toString().repeat(Math.min(arrX[i], arrY[i]));
-  }
+    if (result.length === 0) {
+        return '-1';
+    }
+    
 
-  if (result === '') {
-    return "-1";
-  }
-
-  if (result[0] === '0') {
-    return "0";
-  }
-
-  return result;
+    return result[0][0] === '0' ? '0' :  result.join('');
 }
 //https://school.programmers.co.kr/learn/courses/30/lessons/131128
-
-console.log( solution(	"100", "203045"));
