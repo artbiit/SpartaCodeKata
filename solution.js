@@ -1,8 +1,8 @@
-function solution(numbers) {
-  let sum = 45;
-  for(let num of numbers){
-      sum -= num;
+function solution(arr) {
+  if(arr.length === 1){
+      return arr[0] === 10 ? [-1] : arr;
   }
-  return sum;
+   arr.splice(arr.indexOf(Math.min(... arr)), 1);
+  return  arr;
 }
-//https://school.programmers.co.kr/learn/courses/30/lessons/86051
+//https://school.programmers.co.kr/learn/courses/30/lessons/12935
