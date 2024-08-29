@@ -1,6 +1,6 @@
 function solution(X, Y) {
   let arr = Array(10).fill(0);
-  const factor = 3_000_000;
+  const factor = 3_000_001;
     
     if(X.length > Y.length){
         const tmp = X;
