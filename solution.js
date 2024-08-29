@@ -1,4 +1,8 @@
-function solution(phone_number) {
-  return '*'.repeat(phone_number.length-4) + phone_number.slice(-4) ;
+function solution(numbers) {
+  let sum = 45;
+  for(let num of numbers){
+      sum -= num;
+  }
+  return sum;
 }
-//https://school.programmers.co.kr/learn/courses/30/lessons/12948
+//https://school.programmers.co.kr/learn/courses/30/lessons/86051
