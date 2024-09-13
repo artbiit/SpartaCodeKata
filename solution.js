@@ -1,4 +1,5 @@
-function solution(s) {
-  return [...s].sort((a, b) => b.charCodeAt(0) - a.charCodeAt(0)).join("");
+function solution(price, money, count) {
+  price *= ((count * (count + 1)) / 2) | 0;
+  return money < price ? price - money : 0;
 }
-//https://school.programmers.co.kr/learn/courses/30/lessons/12917
+//https://school.programmers.co.kr/learn/courses/30/lessons/82612
