@@ -1,13 +1,10 @@
-function solution(arr1, arr2) {
-  const rows = arr1.length;
-  const cols = arr1[0].length;
-
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      arr1[i][j] += arr2[i][j];
-    }
-  }
-
-  return arr1;
-}
-//https://school.programmers.co.kr/learn/courses/30/lessons/12950
+process.stdin.setEncoding("utf8");
+process.stdin.on("data", (data) => {
+  const n = data.split(" ");
+  let a = Number(n[0]),
+    b = Number(n[1]);
+  const row = "*".repeat(a) + "\n";
+  const result = row.repeat(b);
+  console.log(result);
+});
+//https://school.programmers.co.kr/learn/courses/30/lessons/12969?language=javascript
