@@ -1,13 +1,13 @@
-function solution(s) {
-  const len = s.length;
-  if (len !== 4 && len !== 6) return false;
+function solution(arr1, arr2) {
+  const rows = arr1.length;
+  const cols = arr1[0].length;
 
-  for (let i = 0; i < len; i++) {
-    const code = s.charCodeAt(i);
-    if (code < 48 || code > 57) return false;
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      arr1[i][j] += arr2[i][j];
+    }
   }
 
-  return true;
+  return arr1;
 }
-
-//https://school.programmers.co.kr/learn/courses/30/lessons/12918
+//https://school.programmers.co.kr/learn/courses/30/lessons/12950
