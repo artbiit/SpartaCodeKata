@@ -1,17 +1,17 @@
-function solution(s) {
-  let i = 0;
+function solution(number) {
+  let count = 0;
 
-  return s
-    .split("")
-    .map((v, idx) => {
-      if (v === " ") {
-        i = 0;
-        return v;
+  for (let i = 0; i < number.length - 2; i++) {
+    for (let j = i + 1; j < number.length - 1; j++) {
+      for (let k = j + 1; k < number.length; k++) {
+        if (number[i] + number[j] + number[k] === 0) {
+          count++;
+        }
       }
+    }
+  }
 
-      return i++ & 1 ? v.toLowerCase() : v.toUpperCase();
-    })
-    .join("");
+  return count;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/12930
+//https://school.programmers.co.kr/learn/courses/30/lessons/131705
