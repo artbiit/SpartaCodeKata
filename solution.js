@@ -1,19 +1,6 @@
-const map = {
-  zero: 0,
-  one: 1,
-  two: 2,
-  three: 3,
-  four: 4,
-  five: 5,
-  six: 6,
-  seven: 7,
-  eight: 8,
-  nine: 9,
-};
-function solution(s) {
-  for (let key of Object.keys(map)) {
-    s = s.replaceAll(key, map[key]);
-  }
-  return Number(s);
-}
-//https://school.programmers.co.kr/learn/courses/30/lessons/81301
+const solution = (strings, n) =>
+  strings.sort((a, b) => {
+    const compare = a.charCodeAt(n) - b.charCodeAt(n);
+    return compare ? compare : a.localeCompare(b);
+  });
+//https://school.programmers.co.kr/learn/courses/30/lessons/12915
