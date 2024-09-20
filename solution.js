@@ -1,17 +1,17 @@
-function solution(number) {
-  let count = 0;
+function solution(t, p) {
+  let tLen = t.length;
+  let pLen = p.length;
 
-  for (let i = 0; i < number.length - 2; i++) {
-    for (let j = i + 1; j < number.length - 1; j++) {
-      for (let k = j + 1; k < number.length; k++) {
-        if (number[i] + number[j] + number[k] === 0) {
-          count++;
-        }
-      }
+  let loop = tLen - pLen;
+  let pNum = Number(p);
+  let count = 0;
+  for (let i = 0; i <= loop; i++) {
+    let tNum = Number(t.substring(i, i + pLen));
+    if (tNum < pNum) {
+      count++;
     }
   }
-
   return count;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/131705
+//https://school.programmers.co.kr/learn/courses/30/lessons/147355
