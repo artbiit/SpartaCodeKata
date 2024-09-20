@@ -1,19 +1,19 @@
-function solution(s, n) {
-  return [...s]
-    .map((value) => {
-      if (value === " ") return value; // 공백 처리
-
-      let charCode = value.charCodeAt(0);
-
-      if (charCode >= 65 && charCode <= 90) {
-        charCode = ((charCode - 65 + n) % 26) + 65;
-      } else if (charCode >= 97 && charCode <= 122) {
-        charCode = ((charCode - 97 + n) % 26) + 97;
-      }
-
-      return String.fromCharCode(charCode);
-    })
-    .join("");
+const map = {
+  zero: 0,
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+};
+function solution(s) {
+  for (let key of Object.keys(map)) {
+    s = s.replaceAll(key, map[key]);
+  }
+  return Number(s);
 }
-
-//https://school.programmers.co.kr/learn/courses/30/lessons/12926
+//https://school.programmers.co.kr/learn/courses/30/lessons/81301
