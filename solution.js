@@ -1,17 +1,16 @@
-function solution(t, p) {
-  let tLen = t.length;
-  let pLen = p.length;
+function solution(sizes) {
+  let w = 0;
+  let h = 0;
 
-  let loop = tLen - pLen;
-  let pNum = Number(p);
-  let count = 0;
-  for (let i = 0; i <= loop; i++) {
-    let tNum = Number(t.substring(i, i + pLen));
-    if (tNum < pNum) {
-      count++;
-    }
+  for (let i = 0; i < sizes.length; i++) {
+    const width = Math.max(sizes[i][0], sizes[i][1]);
+    const height = Math.min(sizes[i][0], sizes[i][1]);
+
+    w = Math.max(w, width);
+    h = Math.max(h, height);
   }
-  return count;
+
+  return w * h;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/147355
+//https://school.programmers.co.kr/learn/courses/30/lessons/86491
