@@ -1,11 +1,18 @@
-function solution(numbers) {
-  const answer = new Set();
-  for (let i = 0; i < numbers.length - 1; i++) {
-    for (let j = i + 1; j < numbers.length; j++) {
-      answer.add(numbers[i] + numbers[j]);
+function solution(s) {
+  let map = {};
+  let result = [];
+
+  for (let i in s) {
+    const c = s[i];
+    if (!map[c]) {
+      result.push(-1);
+    } else {
+      result.push(i - map[c]);
     }
+
+    map[c] = i;
   }
-  return [...answer].sort((a, b) => a - b);
+  return result;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/68644?language=javascript
+//https://school.programmers.co.kr/learn/courses/30/lessons/142086
