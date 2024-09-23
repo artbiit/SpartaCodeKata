@@ -1,13 +1,12 @@
-function solution(food) {
-  let result = [];
-
-  for (let i = 1; i < food.length; i++) {
-    const count = (food[i] * 0.5) | 0;
-    result = result.concat(new Array(count).fill(i));
+function solution(a, b, n) {
+  let result = 0;
+  while (n >= a) {
+    const currentCount = ((n / a) | 0) * b;
+    result += currentCount;
+    n = (n % a) + currentCount;
   }
-
-  return `${result.join("")}0${result.reverse().join("")}`;
+  return result;
 }
 
-console.log(solution([1, 3, 4, 6]));
+console.log(solution(2, 1, 20));
 //https://school.programmers.co.kr/learn/courses/30/lessons/134240
