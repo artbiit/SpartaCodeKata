@@ -1,18 +1,13 @@
-function solution(s) {
-  let map = {};
+function solution(food) {
   let result = [];
 
-  for (let i in s) {
-    const c = s[i];
-    if (!map[c]) {
-      result.push(-1);
-    } else {
-      result.push(i - map[c]);
-    }
-
-    map[c] = i;
+  for (let i = 1; i < food.length; i++) {
+    const count = (food[i] * 0.5) | 0;
+    result = result.concat(new Array(count).fill(i));
   }
-  return result;
+
+  return `${result.join("")}0${result.reverse().join("")}`;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/142086
+console.log(solution([1, 3, 4, 6]));
+//https://school.programmers.co.kr/learn/courses/30/lessons/134240
