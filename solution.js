@@ -1,11 +1,11 @@
-const solution = (array, commands) => {
-  var answer = [];
-  for (let c = 0; c < commands.length; c++) {
-    const cmd = commands[c];
-    answer.push(
-      array.slice(cmd[0] - 1, cmd[1]).sort((a, b) => a - b)[cmd[2] - 1]
-    );
+function solution(numbers) {
+  const answer = new Set();
+  for (let i = 0; i < numbers.length - 1; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      answer.add(numbers[i] + numbers[j]);
+    }
   }
-  return answer;
-};
-//https://school.programmers.co.kr/learn/courses/30/lessons/42748
+  return [...answer].sort((a, b) => a - b);
+}
+
+//https://school.programmers.co.kr/learn/courses/30/lessons/68644?language=javascript
