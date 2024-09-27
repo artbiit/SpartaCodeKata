@@ -1,18 +1,13 @@
-function solution(cards1, cards2, goal) {
-  let firstCard = 0;
-  let secondCard = 0;
-
-  for (const current of goal) {
-    if (current === cards1[firstCard]) {
-      firstCard++;
-    } else if (current === cards2[secondCard]) {
-      secondCard++;
-    } else {
-      return "No";
+function solution(k, m, score) {
+  score.sort((a, b) => b - a);
+  var answer = 0;
+  for (let i = 0; i < score.length / m; i++) {
+    let index = i * m + m - 1;
+    if (!score[index]) {
+      continue;
     }
+    answer += m * score[i * m + m - 1];
   }
-
-  return "Yes";
+  return answer;
 }
-
-//https://school.programmers.co.kr/learn/courses/30/lessons/159994
+//https://school.programmers.co.kr/learn/courses/30/lessons/135808
