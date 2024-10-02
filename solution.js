@@ -1,48 +1,33 @@
-function solution(k, m, score) {
-  const count = Array(k + 1).fill(0);
-  for (let i = 0; i < score.length; i++) {
-    count[score[i]]++;
-  }
+function isPrime(n) {
+  if (n <= 1) return 0;
 
-  const sortedScore = [];
-  for (let i = k; i >= 1; i--) {
-    while (count[i] > 0) {
-      sortedScore.push(i);
-      count[i]--;
+  if (n === 2) return 1;
+
+  if (n % 2 === 0) return 0;
+
+  const sqrtN = Math.sqrt(n);
+
+  for (let i = 3; i <= sqrtN; i += 2) {
+    if (n % i === 0) {
+      return 0;
     }
   }
 
-  let answer = 0;
-  const length = Math.floor(sortedScore.length / m);
-
-  for (let i = 0; i < length; i++) {
-    let index = i * m + m - 1;
-    answer += m * sortedScore[index];
-  }
-
-  return answer;
+  return 1;
 }
 
-function solution2(k, m, score) {
-  let bucket = new Array(k + 1).fill(0);
-  let answer = 0;
-  let totalCount = 0;
-
-  for (let i = 0; i < score.length; i++) {
-    bucket[score[i]]++;
-  }
-
-  for (let i = k; i >= 1; i--) {
-    while (bucket[i] > 0) {
-      totalCount++;
-      if (totalCount % m === 0) {
-        answer += i * m;
+function solution(nums) {
+  var answer = 0;
+  for (let x = 0; x < nums.length - 2; x++) {
+    for (let y = x + 1; y < nums.length - 1; y++) {
+      for (let z = y + 1; z < nums.length; z++) {
+        answer += isPrime(nums[x] + nums[y] + nums[z]);
       }
-      bucket[i]--;
     }
   }
 
   return answer;
 }
 
-//https://school.programmers.co.kr/learn/courses/30/lessons/135808
+console.log(solution([1, 2, 7, 6, 4]));
+//https://school.programmers.co.kr/learn/courses/30/lessons/12977
